@@ -72,7 +72,7 @@ index=main (EventCode=4624 OR EventCode=4625)
 
 ### 🔹 Login Timeline (Failed → Successful)
 
-![Login Timeline](screenshots/login_timeline.png)
+![Login Timeline](https://github.com/dportersec/splunk-siem-brute-force-detection/blob/main/screenshots/login_activity_timeline.png)
 
 ---
 
