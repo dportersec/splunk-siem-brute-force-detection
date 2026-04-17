@@ -78,7 +78,7 @@ index=main (EventCode=4624 OR EventCode=4625)
 
 ### 🔹 Failed Login Count by User
 
-![Stats Query](screenshots/stats_query.png)
+![Stats Query](https://github.com/dportersec/splunk-siem-brute-force-detection/blob/main/screenshots/login_activity_timeline.png)
 
 ---
 
