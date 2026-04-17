@@ -64,7 +64,7 @@ index=main (EventCode=4624 OR EventCode=4625)
 
 ### 🔹 Failed Login Attempts (EventCode 4625)
 
-![Failed Logins](screenshots/failed_logins_4625.png)
+![Failed Logins](https://github.com/dportersec/splunk-siem-brute-force-detection/blob/main/screenshots/failed_login_events_detailed.png)
 
 
 
