@@ -1,16 +1,16 @@
-# 🔐 SIEM Log Analysis: Brute Force Detection (Splunk)
+# 🔐 SOC Incident Investigation: Brute Force Attack Detection (Splunk)
 
 ## 📌 Overview
 
-This project demonstrates a real-world Security Operations Center (SOC) workflow using Splunk SIEM to detect and analyze brute force login attempts on a Windows system.
+This project simulates a real-world Security Operations Center (SOC) investigation into a potential brute-force login attack using Splunk SIEM.
 
 The objective was to:
 
-* Ingest Windows Security logs into Splunk
-* Identify failed login attempts (EventCode 4625)
-* Correlate login activity to detect suspicious behavior
-* Document findings using industry-standard practices
-
+* Ingest and analyze Windows Security logs
+* Perform alert triage on failed login activity (EventCode 4625)
+* Investigate authentication patterns and identify suspicious behavior
+* Correlate failed and successful login events
+* Document findings and recommend response actions following SOC workflows
 ---
 
 ## 🛠️ Tools & Technologies
@@ -33,6 +33,23 @@ A brute force attack was simulated by intentionally entering incorrect login cre
 * Successful login (EventCode 4624) followed failures
 
 ---
+
+## 🧭 Investigation Process
+
+### 1. Alert Triage
+Initial review focused on identifying repeated failed login attempts using EventCode 4625.
+
+### 2. Pattern Analysis
+Multiple failed login attempts were observed targeting the same user account within a short timeframe, indicating potential brute-force behavior.
+
+### 3. Log Correlation
+Failed login events were correlated with successful login events (EventCode 4624) to determine whether access was eventually gained.
+
+### 4. Timeline Creation
+Login activity was analyzed chronologically to understand the sequence of events and identify suspicious spikes in activity.
+
+### 5. Conclusion
+The activity matched known brute-force attack patterns and required escalation for further investigation.
 
 ## 📊 Splunk Queries Used
 
@@ -84,10 +101,22 @@ index=main (EventCode=4624 OR EventCode=4625)
 
 ## 📈 Findings
 
-* Detected multiple failed login attempts within a short time window
+* Detected a high volume of failed login attempts (EventCode 4625) within a short time window
 * Identified repeated targeting of a single user account
-* Observed successful authentication following failed attempts
-* Behavior aligns with brute force attack techniques
+* Observed a successful login (EventCode 4624) following multiple failures
+* The pattern of activity is consistent with a brute-force login attempt
+* No additional evidence confirmed full account compromise, but the behavior warranted escalation
+
+---
+
+## ⏱️ Incident Timeline
+
+| Time | Event |
+|------|------|
+| Initial | Multiple failed login attempts detected (EventCode 4625) |
+| Shortly after | Repeated attempts against same account observed |
+| Later | Successful login recorded (EventCode 4624) |
+| Final | Activity reviewed and flagged for escalation |
 
 ---
 
@@ -107,12 +136,14 @@ This type of activity may indicate:
 
 ---
 
-## ✅ Recommendations
+## ✅ Recommended Response Actions
 
+* Escalate incident to senior analyst for further investigation
+* Reset affected user credentials if compromise is suspected
 * Implement account lockout policies after repeated failures
 * Enable Multi-Factor Authentication (MFA)
-* Monitor login patterns using SIEM alerts
-* Investigate unusual login times or sources
+* Monitor authentication logs for continued suspicious activity
+* Investigate source systems generating failed login attempts
 
 ---
 
@@ -139,6 +170,6 @@ siem-brute-force-detection/
 
 ---
 
-## 📌 Summary
+## 🛡️ SOC Relevance
 
-This project simulates real SOC analyst responsibilities by detecting and analyzing a brute force attack using Splunk. It demonstrates practical experience in log analysis, threat detection, and incident reporting — key skills required for entry-level cybersecurity roles.
+This project demonstrates core Tier 1 SOC analyst responsibilities, including alert triage, log analysis, identifying suspicious authentication patterns, correlating events, documenting findings, and recommending escalation steps. These are essential skills used in real-world security operations environments.
